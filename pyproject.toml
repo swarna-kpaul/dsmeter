@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dsmeter"
+version = "0.1.0"
+description = "Measure Decision Span (DS) — the hardware-independent decision time of any LLM agent system"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Swarna Kamal Paul" }]
+keywords = [
+    "llm",
+    "agents",
+    "observability",
+    "latency",
+    "decision-span",
+    "cpot",
+    "tokens",
+    "tracing",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+adk = ["google-adk"]
+openai = ["openai"]
+anthropic = ["anthropic"]
+dev = [
+    "pytest>=7",
+    "pytest-cov>=4",
+]
+
+[project.urls]
+Homepage = "https://github.com/swarna-kpaul/dsmeter"
+Repository = "https://github.com/swarna-kpaul/dsmeter"
+Issues = "https://github.com/swarna-kpaul/dsmeter/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+dsmeter = ["py.typed"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.coverage.run]
+source = ["dsmeter"]
+branch = true
